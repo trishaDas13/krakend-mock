@@ -74,7 +74,18 @@
       "sd" : "static",
       "target" : "",
       "disable_host_sanitize" : false,
-      "extra_config" : { },
+      "extra_config" : {
+        "proxy" : {
+          "shadow" : false,
+          "flatmap_filter" : [ {
+            "type" : "move",
+            "args" : [ "accounts.*.name_at_bank", "accounts.*.customer_name", "" ]
+          }, {
+            "type" : "del",
+            "args" : [ "accounts.*.success", "" ]
+          } ]
+        }
+      },
       "input_headers" : [ ],
       "input_query_strings" : [ ],
       "is_collection" : true,
