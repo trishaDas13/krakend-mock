@@ -37,6 +37,7 @@
     "output_encoding" : "json",
     "timeout" : "10s"
   } ],
+  "host" : [ "https://apiwiz-ui-team-xiyp.apiwiz.io" ],
   "listen_ip" : "0.0.0.0",
   "max_header_bytes" : 0,
   "max_idle_connections" : 0,
