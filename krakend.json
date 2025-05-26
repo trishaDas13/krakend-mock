@@ -1,0 +1,19 @@
+{
+  "port" : 8080,
+  "cache_ttl" : "0s",
+  "debug_endpoint" : false,
+  "disable_compression" : false,
+  "disable_keep_alives" : false,
+  "disable_rest" : false,
+  "echo_endpoint" : false,
+  "listen_ip" : "0.0.0.0",
+  "max_header_bytes" : 0,
+  "max_idle_connections" : 0,
+  "max_idle_connections_per_host" : 0,
+  "version" : 3,
+  "name" : "mock-plugin-testing",
+  "output_encoding" : "json",
+  "sequential_start" : false,
+  "timeout" : "2s",
+  "use_h2c" : false
+}
