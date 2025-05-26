@@ -6,61 +6,7 @@
   "disable_keep_alives" : false,
   "disable_rest" : false,
   "echo_endpoint" : false,
-  "endpoints" : [ {
-    "backend" : [ {
-      "allow" : [ ],
-      "deny" : [ ],
-      "backendEncoding" : "json",
-      "group" : "",
-      "host" : [ "https://apiwiz-ui-team-xiyp.apiwiz.io" ],
-      "mapping" : {
-        "" : ""
-      },
-      "method" : "GET",
-      "sd" : "static",
-      "target" : "",
-      "disable_host_sanitize" : false,
-      "extra_config" : {
-        "modifier/response-body" : {
-          "expr" : [ {
-            "literal" : {
-              "field" : "transformedModifiers.data.name",
-              "find" : "KRAKEND",
-              "replace" : "response transformation"
-            }
-          }, {
-            "lower" : {
-              "field" : "transformedModifiers.data.description"
-            }
-          }, {
-            "upper" : {
-              "field" : "transformedModifiers.data.tag"
-            }
-          }, {
-            "regexp" : {
-              "field" : "transformedModifiers.data.id",
-              "find" : "[A-Z]{3}(\\\\d+)",
-              "replace" : "$1"
-            }
-          } ]
-        }
-      },
-      "input_headers" : [ ],
-      "input_query_strings" : [ ],
-      "is_collection" : false,
-      "sd_scheme" : "http",
-      "url_pattern" : "/getModifiers"
-    } ],
-    "cache_ttl" : "0ms",
-    "concurrent_calls" : 1,
-    "endpoint" : "/transformed",
-    "extra_config" : { },
-    "input_headers" : [ ],
-    "input_query_strings" : [ ],
-    "method" : "GET",
-    "output_encoding" : "json",
-    "timeout" : "10s"
-  } ],
+  "endpoints" : [ ],
   "host" : [ "https://apiwiz-ui-team-xiyp.apiwiz.io" ],
   "listen_ip" : "0.0.0.0",
   "max_header_bytes" : 0,
