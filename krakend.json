@@ -6,52 +6,7 @@
   "disable_keep_alives" : false,
   "disable_rest" : false,
   "echo_endpoint" : false,
-  "endpoints" : [ {
-    "backend" : [ {
-      "allow" : [ ],
-      "deny" : [ ],
-      "backendEncoding" : "json",
-      "group" : "backend1",
-      "host" : [ "https://apiwiz-ui-team-xiyp.apiwiz.io" ],
-      "mapping" : {
-        "" : ""
-      },
-      "method" : "GET",
-      "sd" : "static",
-      "target" : "",
-      "disable_host_sanitize" : false,
-      "extra_config" : {
-        "backend/amqp/consumer" : {
-          "durable" : { },
-          "max_retries" : { },
-          "prefetch_count" : 1,
-          "name" : "Queue-1",
-          "exclusive" : false,
-          "backoff_strategy" : "linear",
-          "exchange" : "test-exchange",
-          "no_local" : { },
-          "no_wait" : { },
-          "routing_key" : [ "test-routing-key", "" ],
-          "delete" : { },
-          "auto_ack" : { }
-        }
-      },
-      "input_headers" : [ ],
-      "input_query_strings" : [ ],
-      "is_collection" : false,
-      "sd_scheme" : "http",
-      "url_pattern" : "/getValidatedResult"
-    } ],
-    "cache_ttl" : "0ms",
-    "concurrent_calls" : 1,
-    "endpoint" : "/getPluginResult",
-    "extra_config" : { },
-    "input_headers" : [ ],
-    "input_query_strings" : [ ],
-    "method" : "GET",
-    "output_encoding" : "json",
-    "timeout" : "2s"
-  } ],
+  "endpoints" : [ ],
   "host" : [ "https://apiwiz-ui-team-xiyp.apiwiz.io" ],
   "listen_ip" : "0.0.0.0",
   "max_header_bytes" : 0,
