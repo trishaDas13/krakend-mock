@@ -60,46 +60,6 @@
     "method" : "GET",
     "output_encoding" : "json",
     "timeout" : "10s"
-  }, {
-    "backend" : [ {
-      "allow" : [ ],
-      "deny" : [ ],
-      "backendEncoding" : "json",
-      "group" : "backend1",
-      "host" : [ "https://apiwiz-ui-team-xiyp.apiwiz.io" ],
-      "mapping" : {
-        "" : ""
-      },
-      "method" : "GET",
-      "sd" : "static",
-      "target" : "",
-      "disable_host_sanitize" : false,
-      "extra_config" : {
-        "validation/cel" : {
-          "" : [ {
-            "check_expr" : "dasd"
-          }, {
-            "check_expr" : "ASDASD"
-          }, {
-            "check_expr" : "asasdasd"
-          } ]
-        }
-      },
-      "input_headers" : [ ],
-      "input_query_strings" : [ ],
-      "is_collection" : false,
-      "sd_scheme" : "http",
-      "url_pattern" : "/getKeyValue"
-    } ],
-    "cache_ttl" : "0ms",
-    "concurrent_calls" : 1,
-    "endpoint" : "/keyvalue",
-    "extra_config" : { },
-    "input_headers" : [ ],
-    "input_query_strings" : [ ],
-    "method" : "GET",
-    "output_encoding" : "json",
-    "timeout" : "10s"
   } ],
   "host" : [ "https://apiwiz-ui-team-xiyp.apiwiz.io" ],
   "listen_ip" : "0.0.0.0",
