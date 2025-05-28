@@ -6,7 +6,44 @@
   "disable_keep_alives" : false,
   "disable_rest" : false,
   "echo_endpoint" : false,
-  "endpoints" : [ ],
+  "endpoints" : [ {
+    "backend" : [ {
+      "allow" : [ ],
+      "deny" : [ ],
+      "backendEncoding" : "json",
+      "group" : "backend1",
+      "host" : [ "https://apiwiz-ui-team-xiyp.apiwiz.io" ],
+      "mapping" : {
+        "" : ""
+      },
+      "method" : "GET",
+      "sd" : "static",
+      "target" : "",
+      "disable_host_sanitize" : false,
+      "extra_config" : {
+        "modifier/response-body-generator" : {
+          "template" : "eyJuYW1lIjoie3sgaW5kZXggLmFjY291bnRzIDAgfCAubmFtZV9hdF9iYW5rIH19IiwiaWZzYyI6Int7IGluZGV4IC5hY2NvdW50cyAwIHwgLmlmc2MgfX0iLCJicmFuY2giOiJ7eyBpbmRleCAuYWNjb3VudHMgMCB8IC5tZXRhZGF0YS5icmFuY2ggfX0ifQ==",
+          "path" : { },
+          "debug" : false,
+          "content_type" : "application/json"
+        }
+      },
+      "input_headers" : [ ],
+      "input_query_strings" : [ ],
+      "is_collection" : true,
+      "sd_scheme" : "http",
+      "url_pattern" : "/getModifiers"
+    } ],
+    "cache_ttl" : "0ms",
+    "concurrent_calls" : 1,
+    "endpoint" : "/validate",
+    "extra_config" : { },
+    "input_headers" : [ ],
+    "input_query_strings" : [ ],
+    "method" : "GET",
+    "output_encoding" : "json",
+    "timeout" : "12s"
+  } ],
   "host" : [ "https://apiwiz-ui-team-xiyp.apiwiz.io" ],
   "listen_ip" : "0.0.0.0",
   "max_header_bytes" : 0,
