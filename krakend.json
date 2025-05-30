@@ -65,6 +65,139 @@
     "method" : "GET",
     "output_encoding" : "json",
     "timeout" : "10s"
+  }, {
+    "backend" : [ {
+      "allow" : [ ],
+      "deny" : [ ],
+      "backendEncoding" : "json",
+      "group" : "backend1",
+      "host" : [ "https://apiwiz-ui-team-xiyp.apiwiz.io" ],
+      "mapping" : {
+        "" : ""
+      },
+      "method" : "GET",
+      "sd" : "static",
+      "target" : "",
+      "disable_host_sanitize" : false,
+      "extra_config" : {
+        "validation/response-json-schema" : {
+          "error" : {
+            "body" : "Invalid scheema validation",
+            "content_type" : "application/json",
+            "status" : 422
+          },
+          "schema" : {
+            "schema" : {
+              "type" : "object",
+              "required" : [ "accounts" ],
+              "properties" : {
+                "accounts" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "object",
+                    "required" : [ "account_number", "ifsc", "metadata", "name_at_bank", "success", "transactions" ],
+                    "properties" : {
+                      "account_number" : {
+                        "type" : "string",
+                        "pattern" : "^[0-9]{10,16}$"
+                      },
+                      "ifsc" : {
+                        "type" : "string",
+                        "pattern" : "^[A-Z]{4}0[A-Z0-9]{6}$"
+                      },
+                      "metadata" : {
+                        "type" : "object",
+                        "required" : [ "branch", "verified" ],
+                        "properties" : {
+                          "branch" : {
+                            "type" : "string"
+                          },
+                          "verified" : {
+                            "type" : "boolean"
+                          }
+                        },
+                        "additionalProperties" : false
+                      },
+                      "name_at_bank" : {
+                        "type" : "string"
+                      },
+                      "success" : {
+                        "type" : "boolean"
+                      },
+                      "transactions" : {
+                        "type" : "array",
+                        "items" : {
+                          "type" : "object",
+                          "required" : [ "amount", "id", "status" ],
+                          "properties" : {
+                            "amount" : {
+                              "type" : "number"
+                            },
+                            "id" : {
+                              "type" : "string"
+                            },
+                            "status" : {
+                              "type" : "string",
+                              "enum" : [ "success", "failed" ]
+                            }
+                          },
+                          "additionalProperties" : false
+                        }
+                      }
+                    },
+                    "additionalProperties" : false
+                  }
+                }
+              },
+              "additionalProperties" : false
+            },
+            "error" : {
+              "body" : "Invalid response schema",
+              "content_type" : "application/json",
+              "status" : 422
+            }
+          }
+        }
+      },
+      "input_headers" : [ ],
+      "input_query_strings" : [ ],
+      "is_collection" : true,
+      "sd_scheme" : "http",
+      "url_pattern" : "/getModifiers"
+    } ],
+    "cache_ttl" : "0ms",
+    "concurrent_calls" : 1,
+    "endpoint" : "/validate",
+    "extra_config" : {
+      "modifier/response-body" : {
+        "expr" : [ {
+          "literal" : {
+            "field" : "ifsc",
+            "find" : "HDFC0000123",
+            "replace" : "REDACTED_IFSC"
+          }
+        }, {
+          "regexp" : {
+            "field" : "account_number",
+            "find" : "^(\\\\\\\\d{6})\\\\\\\\d{4}$",
+            "replace" : "$1XXXX"
+          }
+        }, {
+          "upper" : {
+            "field" : "metadata.branch"
+          }
+        }, {
+          "lower" : {
+            "field" : "name_at_bank"
+          }
+        } ]
+      }
+    },
+    "input_headers" : [ ],
+    "input_query_strings" : [ ],
+    "method" : "GET",
+    "output_encoding" : "json",
+    "timeout" : "12s"
   } ],
   "host" : [ "https://apiwiz-ui-team-xiyp.apiwiz.io" ],
   "listen_ip" : "0.0.0.0",
