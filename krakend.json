@@ -65,6 +65,48 @@
     "method" : "GET",
     "output_encoding" : "json",
     "timeout" : "10s"
+  }, {
+    "backend" : [ {
+      "allow" : [ ],
+      "deny" : [ ],
+      "backendEncoding" : "json",
+      "group" : "backend1",
+      "host" : [ "https://apiwiz-ui-team-xiyp.apiwiz.io" ],
+      "mapping" : {
+        "" : ""
+      },
+      "method" : "GET",
+      "sd" : "static",
+      "target" : "",
+      "disable_host_sanitize" : false,
+      "extra_config" : { },
+      "input_headers" : [ ],
+      "input_query_strings" : [ ],
+      "is_collection" : true,
+      "sd_scheme" : "http",
+      "url_pattern" : "/getModifiers"
+    } ],
+    "cache_ttl" : "0ms",
+    "concurrent_calls" : 1,
+    "endpoint" : "/validate",
+    "extra_config" : {
+      "qos/ratelimit/router" : {
+        "num_shards" : 2048,
+        "max_rate" : 5,
+        "cleanup_period" : "60s",
+        "client_capacity" : 1,
+        "cleanup_threads" : 1,
+        "strategy" : "ip",
+        "client_max_rate" : 2,
+        "every" : "25s",
+        "capacity" : 3
+      }
+    },
+    "input_headers" : [ ],
+    "input_query_strings" : [ ],
+    "method" : "GET",
+    "output_encoding" : "json",
+    "timeout" : "12s"
   } ],
   "host" : [ "https://apiwiz-ui-team-xiyp.apiwiz.io" ],
   "listen_ip" : "0.0.0.0",
