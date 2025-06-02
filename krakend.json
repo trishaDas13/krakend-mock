@@ -65,43 +65,6 @@
     "method" : "GET",
     "output_encoding" : "json",
     "timeout" : "10s"
-  }, {
-    "backend" : [ {
-      "allow" : [ ],
-      "deny" : [ ],
-      "backendEncoding" : "json",
-      "group" : "backend1",
-      "host" : [ "https://apiwiz-ui-team-xiyp.apiwiz.io" ],
-      "mapping" : {
-        "" : ""
-      },
-      "method" : "GET",
-      "sd" : "static",
-      "target" : "",
-      "disable_host_sanitize" : false,
-      "extra_config" : {
-        "modifier/body-generator" : {
-          "template" : "eyJycFRlc3QiOiJ7ey5yZXFfcGFyYW1zLkJhcn19IiwiYm9keVRlc3QiOiJ7eyAucmVxX2JvZHkuZW1haWwgfX0iLCJyb29tIjoie3sgLnJlcV9oZWFkZXJzLlJvb219fSIsInEiOiJ7eyAucmVxX2hlYWRlcnMuUX19IiwicXVlcnlTdHJpbmciOiJ7ey5yZXFfcXVlcnlzdHJpbmcucXVlcnlUZXN0fX0iLCJwYXRoIjoie3sucmVxX3BhdGh9fSJ9",
-          "path" : false,
-          "debug" : false,
-          "content_type" : "application/json"
-        }
-      },
-      "input_headers" : [ ],
-      "input_query_strings" : [ ],
-      "is_collection" : true,
-      "sd_scheme" : "http",
-      "url_pattern" : "/getModifiers"
-    } ],
-    "cache_ttl" : "0ms",
-    "concurrent_calls" : 1,
-    "endpoint" : "/validate",
-    "extra_config" : { },
-    "input_headers" : [ ],
-    "input_query_strings" : [ ],
-    "method" : "GET",
-    "output_encoding" : "json",
-    "timeout" : "12s"
   } ],
   "extra_config" : {
     "auth/revoker" : {
