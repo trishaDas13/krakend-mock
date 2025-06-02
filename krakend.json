@@ -103,6 +103,20 @@
     "output_encoding" : "json",
     "timeout" : "12s"
   } ],
+  "extra_config" : {
+    "auth/revoker" : {
+      "P" : 5,
+      "revoke_server_api_key" : "http://revoke-service.internal/revoke",
+      "revoke_server_max_workers" : 5,
+      "revoke_server_ping_interval" : "60s",
+      "token_keys" : [ "jti" ],
+      "port" : 8081,
+      "TTL" : 30,
+      "hash_name" : "default",
+      "revoke_server_max_retries" : 3,
+      "N" : 5
+    }
+  },
   "host" : [ "https://apiwiz-ui-team-xiyp.apiwiz.io" ],
   "listen_ip" : "0.0.0.0",
   "max_header_bytes" : 0,
