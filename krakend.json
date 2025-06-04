@@ -65,6 +65,64 @@
     "method" : "GET",
     "output_encoding" : "json",
     "timeout" : "10s"
+  }, {
+    "backend" : [ {
+      "allow" : [ ],
+      "deny" : [ ],
+      "backendEncoding" : "json",
+      "group" : "backend1",
+      "host" : [ "https://apiwiz-ui-team-xiyp.apiwiz.io" ],
+      "mapping" : {
+        "" : ""
+      },
+      "method" : "GET",
+      "sd" : "static",
+      "target" : "",
+      "disable_host_sanitize" : false,
+      "extra_config" : {
+        "backend" : {
+          "header_mapping" : {
+            "X-Tenant" : "customerid"
+          },
+          "output_duration_as_string" : true,
+          "read_buffer_size" : 32768,
+          "disable_query_params" : false,
+          "input_assume_bytes" : false,
+          "idle_conn_disconnect_time" : "10m",
+          "output_timestamp_as_string" : true,
+          "use_request_body" : false,
+          "use_alternate_host_on_error" : true,
+          "output_enum_as_string" : true,
+          "output_remove_unset_values" : true,
+          "input_mapping" : {
+            "lat" : "origin.position.latitude",
+            "lon" : "origin.position.longitude",
+            "tm" : "departure.start"
+          },
+          "response_naming_convention" : "camelCase",
+          "request_naming_convention" : "camelCase",
+          "client_tls" : {
+            "allow_insecure_connections" : true,
+            "max_version" : "TLS10",
+            "min_version" : "TLS10"
+          }
+        }
+      },
+      "input_headers" : [ ],
+      "input_query_strings" : [ ],
+      "is_collection" : true,
+      "sd_scheme" : "http",
+      "url_pattern" : "/getModifiers"
+    } ],
+    "cache_ttl" : "0ms",
+    "concurrent_calls" : 1,
+    "endpoint" : "/validate",
+    "extra_config" : { },
+    "input_headers" : [ ],
+    "input_query_strings" : [ ],
+    "method" : "GET",
+    "output_encoding" : "json",
+    "timeout" : "12s"
   } ],
   "extra_config" : {
     "auth/revoker" : {
